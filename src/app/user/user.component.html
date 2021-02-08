@@ -1,0 +1,73 @@
+<app-form-search (emitSearch)="getUser($event)"></app-form-search>
+
+<div class="container-fluid" style="padding-top: 80px; padding-left: 50px;">
+    <div class="row">
+        <div class="col-md-6">
+            <img style="border-radius: 50px;" src="{{user.avatar_url}}" alt="">
+
+        </div>
+
+        <div class="col-md-6">
+            <h2 >Profile Information</h2>
+            <p> <span>Name:</span>
+                {{user.name}}
+            </p>
+            <p *ngIf="user.login">
+                <span>UserName:</span>
+                {{ user.login }}
+            </p>
+            <p><span>Bio:</span>
+                {{user.bio}}
+            </p>
+            <p><span>Repositories:</span>
+                {{user.public_repos}}
+            </p>
+
+            <p> Followers:
+                {{ user.followers }}
+            </p>
+
+            <p> Following:
+                {{ user.following }}
+            </p>
+
+
+        </div>
+    </div>
+
+    <div>
+        <h2 class="text-center pt-4  font-size:70px;">GitHub Repositories</h2>
+    </div>
+    <div class="container" style="text-align: center;">
+
+        <div class="row" >
+            <div class="col-md-6" *ngFor="let repos of userrepos">
+                <div class="card mt-3">
+
+                    <p class="text-center pt-4 para">
+                        {{repos.name}}
+                    </p>
+
+                    <hr>
+                    <p>
+                        {{repos.description}}
+                    </p>
+
+                    <p>
+                        {{repos.language}}
+                    </p>
+                    <p>
+                        {{repos.created_at}}
+                    </p>
+                    <div class="card-footer text-center">
+                        <a href="{{ repos.html_url }}" class="btn btn-success" target="_blank">View on GitHub</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

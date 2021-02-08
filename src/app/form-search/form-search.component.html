@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row" style="margin-top: 30px;">
+     
+        <h2 >Search your repositories here using github username</h2>
+        <div class="col-md-6 pt-2" >
+            <form class="form-inline md-form mr-auto mb-4"#name="ngForm">
+                <input class="form-control  mr-sm-2" type="text" placeholder="Enter GitHub name" aria-label="Search"  [(ngModel)] ="UserName" name="UserName">
+                <button mdbBtn size="sm"  rounded="true" class="my-0 waves-light btn btn-success" mdbWavesEffect
+                    type="submit" (click)=" getuser1()">Search user</button>
+            </form>
+        </div>
+
+    </div>
+
+</div>
