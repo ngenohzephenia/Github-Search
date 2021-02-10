@@ -37,12 +37,13 @@ export class ProfileService {
     }
 
     let promise = new Promise<void>((resolve, reject) => {
-      let apiURL = 'https://api.github.com/users/' + UserName + '?access_token=' + environment.apiKey;
+      let apiURL = 'https://api.github.com/users/' + UserName;
       this.http.get<ApiResponse>(apiURL)
         .toPromise()
         .then(
           res => { // Success
             this.user = res;
+            console.log(this.user)
             resolve();
           },
           (error) =>{
@@ -63,7 +64,7 @@ export class ProfileService {
     }
     
     let promise = new Promise<void>((resolve, reject) => {
-      let apiURL = 'https://api.github.com/users/' + UserName + '/repos?access_token=' + environment.apiKey;
+      let apiURL = 'https://api.github.com/users/' + UserName + '/repos';
       this.http.get<ApiResponse>(apiURL)
         .toPromise()
         .then(
